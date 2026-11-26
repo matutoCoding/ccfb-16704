@@ -1,0 +1,28 @@
+{
+  "name": "stele-rubbing-studio",
+  "version": "0.1.0",
+  "description": "浏览器端碑刻三维扫描、数字拓片、对比校勘与出版导出系统",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview --host 127.0.0.1",
+    "acceptance": "tsx scripts/acceptance.ts",
+    "smoke:browser": "node scripts/browser-smoke.mjs",
+    "check:edge": "node scripts/edge-check.mjs",
+    "check:export": "node scripts/export-check.mjs",
+    "test": "tsx scripts/acceptance.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matutoCoding/ccfb-16704.git"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^26.6.11",
+    "playwright-core": "^1.65.1",
+    "tsx": "^4.20.6",
+    "typescript": "^7.0.2",
+    "vite": "^8.4.0"
+  }
+}

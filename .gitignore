@@ -13,6 +13,11 @@ credentials*.json
 .npmrc
 .pypirc
 node_modules/
+dist/
+test-results/
+*smoke.png
+*smoke.zip
+export-smoke.tif
 __pycache__/
 .venv/
 venv/

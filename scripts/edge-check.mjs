@@ -1,0 +1,12 @@
+import { chromium } from 'playwright-core';
+const browser = await chromium.launch({ executablePath: process.env.CHROME_PATH || 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe', headless: true, args: ['--no-sandbox', '--enable-unsafe-swiftshader', '--use-angle=swiftshader'] });
+const page = await browser.newPage({ viewport: { width: 1600, height: 1000 } });
+page.on('pageerror', e => console.error('PAGEERROR', e.stack || e.message));
+await page.goto('http://127.0.0.1:4173/#/settings', { waitUntil: 'domcontentloaded' });
+await page.waitForSelector('button:not([disabled])', { timeout: 180000 });
+await page.getByRole('button', { name: /运行边界偏差检测/ }).click();
+await page.waitForSelector('text=/600DPI 综合 P95/', { timeout: 120000 });
+await page.waitForTimeout(500);
+const text = await page.locator('.card').filter({ hasText: '刻口几何精度验收' }).innerText();
+console.log(text);
+await browser.close();
